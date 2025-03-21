@@ -13,3 +13,7 @@ class NoteTracker:
                 print("End of page reached – TURN PAGE")
                 return True  # signal for page turn
         return False
+
+    def __str__(self):
+        return (f"There are {len(list(self.expected_notes))} remaining notes. \n"
+                f"Remaining notes {list(self.expected_notes)}")

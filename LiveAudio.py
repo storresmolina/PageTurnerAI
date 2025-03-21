@@ -2,6 +2,7 @@ import pyaudio
 import numpy as np
 import aubio
 from NoteTrackerClass import NoteTracker
+from SheetNoteDetector import extract_notes_from_pdf
 
 # Audio stream parameters
 FORMAT = pyaudio.paFloat32
@@ -42,6 +43,9 @@ print("Listening for piano notes... Press Ctrl+C to stop.")
 
 try:
     tracker = NoteTracker(["C4", "E4", "G4", "C5"])
+    # sheet_notes = extract_notes_from_pdf("Examples/Example2.pdf")
+    # tracker = NoteTracker(sheet_notes)
+    print(tracker)
     while True:
         data = stream.read(CHUNK, exception_on_overflow=False)
         samples = np.frombuffer(data, dtype=np.float32)
