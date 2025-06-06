@@ -1,5 +1,5 @@
 from pdf2image import convert_from_path
-from PIL import Image
+# from PIL import Image
 import cv2
 import numpy as np
 from typing import List
