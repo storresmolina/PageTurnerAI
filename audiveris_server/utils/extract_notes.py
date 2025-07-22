@@ -16,6 +16,7 @@ def parse_musicxml(mxl_file):
     if not xml_file:
         raise FileNotFoundError("XML file not found inside MXL.")
     
+    print(type(xml_file))
     tree = etree.parse(xml_file)
     root = tree.getroot()
     ns = {'m': 'http://www.musicxml.com/ns/1.0'}

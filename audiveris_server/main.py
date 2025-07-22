@@ -28,19 +28,23 @@ async def extract_notes(pdf: UploadFile = File(...)):
 
     # Call Audiveris CLI tool to process the PDF 
 
-    AUDIVERIS_JAR_PATH = r"C:\Program Files\Audiveris\app\audiveris.jar"
+    AUDIVERIS_CP_DIR = r"C:\Program Files\Audiveris\app"
+    
+    cmd = f'java -cp "{AUDIVERIS_CP_DIR}\\*" Audiveris -batch -export -output {OUTPUT_DIR} {filepath}'
 
     try:
-        subprocess.run([
-            "java",
-            "-jar",
-            AUDIVERIS_JAR_PATH,
-            "-batch",
-            "-export",
-            "-output",
-            OUTPUT_DIR,
-            filepath
-        ], check=True, shell=True)
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            shell=True
+        )
+
+        if result.returncode != 0:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Audiveris failed: {result.stderr}"
+            )
             
     except subprocess.CalledProcessError as e:
         raise HTTPException(status_code=500, detail=f"Audiveris failed to process the file: {e}")

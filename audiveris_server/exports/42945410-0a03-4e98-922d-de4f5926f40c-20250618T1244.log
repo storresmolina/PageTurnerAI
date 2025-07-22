@@ -1,0 +1,55 @@
+2025-06-18 12:44:48,511 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Book.java:562  | 1 sheet in C:\Users\tseba\VSCode Projects\PageTurnerAI\audiveris_server\uploads\42945410-0a03-4e98-922d-de4f5926f40c.pdf
+2025-06-18 12:44:48,629 INFO []                 Book.java:2531 | Stored /book.xml
+2025-06-18 12:44:48,629 INFO []                 Book.java:2491 | Book stored as exports\42945410-0a03-4e98-922d-de4f5926f40c.omr
+2025-06-18 12:44:48,633 INFO []                 Book.java:1933 | Book reaching PAGE on sheets:[#1]
+2025-06-18 12:44:48,634 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | LOAD
+2025-06-18 12:44:48,885 INFO [42945410-0a03-4e98-922d-de4f5926f40c]            SheetStub.java:1268 | Loaded image #1 2550x3299 from C:\Users\tseba\VSCode Projects\PageTurnerAI\audiveris_server\uploads\42945410-0a03-4e98-922d-de4f5926f40c.pdf
+2025-06-18 12:44:48,895 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | BINARY
+2025-06-18 12:44:49,241 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | SCALE
+2025-06-18 12:44:49,262 INFO [42945410-0a03-4e98-922d-de4f5926f40c]         ScaleBuilder.java:241  | Beam  guessed height: 10 -- 0.50 of 21 interline
+2025-06-18 12:44:49,263 INFO [42945410-0a03-4e98-922d-de4f5926f40c]         ScaleBuilder.java:264  | Beam measured height: 12 -- 0.40 of [6..21] range at 270% of needed quorum
+2025-06-18 12:44:49,263 INFO [42945410-0a03-4e98-922d-de4f5926f40c]            ScaleStep.java:65   | Scale{ interline(20,21,21) line(2,2,2) beam(12)}
+2025-06-18 12:44:49,264 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | GRID
+2025-06-18 12:44:49,462 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       LinesRetriever.java:1500 | Global slope: 0.00000
+2025-06-18 12:44:49,489 INFO [42945410-0a03-4e98-922d-de4f5926f40c]    ClustersRetriever.java:328  | Retrieved raw line clusters: 6 of sizes [5] with interline(20,21,21)
+2025-06-18 12:44:49,615 INFO [42945410-0a03-4e98-922d-de4f5926f40c]            PeakGraph.java:310  | Systems: #1[1, 2] #2[3, 4] #3[5, 6]
+2025-06-18 12:44:49,792 INFO [42945410-0a03-4e98-922d-de4f5926f40c]        SystemManager.java:134  | Indentation detected for system #1
+2025-06-18 12:44:49,793 INFO [42945410-0a03-4e98-922d-de4f5926f40c]        SystemManager.java:779  | 1 part along 3 systems
+2025-06-18 12:44:49,794 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Book.java:545  | Created scores: [{Score 1}]
+2025-06-18 12:44:49,794 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | HEADERS
+2025-06-18 12:44:49,962 INFO [42945410-0a03-4e98-922d-de4f5926f40c]      BasicClassifier.java:277  | Classifier loaded XML norms.
+2025-06-18 12:44:49,967 INFO [42945410-0a03-4e98-922d-de4f5926f40c]   AbstractClassifier.java:396  | Classifier data loaded from default uri jar:file:/C:/Program%20Files/Audiveris/app/audiveris.jar!/res/basic-classifier.zip
+2025-06-18 12:44:50,396 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | STEM_SEEDS
+2025-06-18 12:44:50,435 INFO [42945410-0a03-4e98-922d-de4f5926f40c]        StemSeedsStep.java:86   | stem(4 max:4)
+2025-06-18 12:44:50,464 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | BEAMS
+2025-06-18 12:44:53,193 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | LEDGERS
+2025-06-18 12:44:53,387 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | HEADS
+2025-06-18 12:44:54,639 INFO [42945410-0a03-4e98-922d-de4f5926f40c]        HeadSeedTally.java:235  | Scale information: HeadSeeds{}
+2025-06-18 12:44:54,640 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | STEMS
+2025-06-18 12:44:54,825 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | REDUCTION
+2025-06-18 12:44:54,860 INFO [42945410-0a03-4e98-922d-de4f5926f40c]        ReductionStep.java:105  | Stems free length median value: 72 pixels, 3.4 interlines
+2025-06-18 12:44:54,865 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | CUE_BEAMS
+2025-06-18 12:44:54,865 INFO [42945410-0a03-4e98-922d-de4f5926f40c]         CueBeamsStep.java:81   | Step CUE_BEAMS is skipped because small heads switch is off
+2025-06-18 12:44:54,866 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | TEXTS
+2025-06-18 12:44:55,352 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | MEASURES
+2025-06-18 12:44:55,364 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Page.java:307  | 32 raw measures: [8 in system#1, 12 in system#2, 12 in system#3]
+2025-06-18 12:44:55,364 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | CHORDS
+2025-06-18 12:44:55,372 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | CURVES
+2025-06-18 12:44:55,877 INFO [42945410-0a03-4e98-922d-de4f5926f40c]         SlursBuilder.java:240  | Slurs: 0
+2025-06-18 12:44:55,883 INFO [42945410-0a03-4e98-922d-de4f5926f40c]      SegmentsBuilder.java:155  | Segments: 1
+2025-06-18 12:44:55,889 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | SYMBOLS
+2025-06-18 12:44:56,010 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | LINKS
+2025-06-18 12:44:56,031 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | RHYTHMS
+2025-06-18 12:44:56,073 INFO [42945410-0a03-4e98-922d-de4f5926f40c]       StepMonitoring.java:98   | PAGE
+2025-06-18 12:44:56,080 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Book.java:2550 | Book{42945410-0a03-4e98-922d-de4f5926f40c} storing
+2025-06-18 12:44:56,104 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Book.java:2531 | Stored /book.xml
+2025-06-18 12:44:56,180 INFO [42945410-0a03-4e98-922d-de4f5926f40c]           DataHolder.java:348  | Stored /sheet#1/BINARY.png
+2025-06-18 12:44:56,417 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                Sheet.java:1562 | Stored /sheet#1/sheet#1.xml
+2025-06-18 12:44:56,418 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Book.java:2491 | Book stored as exports\42945410-0a03-4e98-922d-de4f5926f40c.omr
+2025-06-18 12:44:56,420 INFO [42945410-0a03-4e98-922d-de4f5926f40c]            SheetStub.java:1644 | Disposed sheet
+2025-06-18 12:44:56,449 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Book.java:2018 | End of Stub#1 memory: 38,302,864
+2025-06-18 12:44:56,450 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                 Book.java:2025 | Book processed.
+2025-06-18 12:44:56,710 INFO [42945410-0a03-4e98-922d-de4f5926f40c]            SheetStub.java:995  | Loaded /sheet#1/sheet#1.xml
+2025-06-18 12:44:57,032 INFO [42945410-0a03-4e98-922d-de4f5926f40c]      PartwiseBuilder.java:2661 | Exporting sheet(s): [#1]
+2025-06-18 12:44:57,095 INFO [42945410-0a03-4e98-922d-de4f5926f40c]        ScoreExporter.java:164  | Score 42945410-0a03-4e98-922d-de4f5926f40c exported to exports\42945410-0a03-4e98-922d-de4f5926f40c.mxl
+2025-06-18 12:44:57,121 INFO [42945410-0a03-4e98-922d-de4f5926f40c]                Score.java:181  | Closing {Score 1}
