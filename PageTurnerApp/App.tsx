@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, Alert, Text, View, Platform, StatusBar } from 'react-native';
+import {StyleSheet, Alert, Text, View, Platform, StatusBar, useWindowDimensions, Image, TouchableOpacity } from 'react-native';
 import * as Font from 'expo-font';
 import * as DocumentPicker from 'expo-document-picker';
 import * as SplashScreen from 'expo-splash-screen';
 import PdfGrid from './components/PdfGrid';
-import { ItalicOutlined } from '@ant-design/icons';
 
 SplashScreen.preventAutoHideAsync();
 SplashScreen.setOptions({ duration: 1000, fade: true });
@@ -12,6 +11,10 @@ SplashScreen.setOptions({ duration: 1000, fade: true });
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [selectedPDF, setSelectedPDF] = useState<null | { name: string; url: string }>(null);
+  const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
+  const cardWidth = 140; // width of 1 card + margin
+  const numColumns = Math.max(1, Math.floor(width / cardWidth));
 
   useEffect(() => {
     async function prepare() {
@@ -22,6 +25,8 @@ export default function App() {
           'LibreBaskerville-Regular': require('./assets/fonts/LibreBaskerville-Regular.ttf'),
           'LibreBaskerville-Bold': require('./assets/fonts/LibreBaskerville-Bold.ttf'),
           'LibreBaskerville-Italic': require('./assets/fonts/LibreBaskerville-Italic.ttf'),
+          'DMSerifDisplay-Italic': require('./assets/fonts/DMSerifDisplay-Italic.ttf'),
+          'DMSerifDisplay-Regular': require('./assets/fonts/DMSerifDisplay-Italic.ttf')
         });
       } catch (e) {
         console.warn(e);
@@ -61,7 +66,10 @@ export default function App() {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <View style={styles.topBar}>
-        <Text style={styles.topBarText}>PageTurner AI</Text>
+        <Text style={styles.topBarText}>
+          <Text style={styles.TopBarText1}> pageturner </Text>
+          <Text style={styles.TopBarText2}>AI</Text>
+        </Text>
       </View>
 
       <View style={styles.mainContent}>
@@ -71,7 +79,7 @@ export default function App() {
             {/* TODO: PDF Preview Component */}
           </View>
         ) : (
-          <PdfGrid onAdd={pickPDF} />
+          <PdfGrid onAdd={pickPDF} numColumns={numColumns} />
         )}
       </View>
     </View>
@@ -86,16 +94,32 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAF9F6',
   },
   topBar: {
-    backgroundColor: '#A47764',
+    backgroundColor: '#FAF9F6',
     paddingTop: StatusBarHeight,
     height: 50 + StatusBarHeight,
     justifyContent: 'center',
     paddingLeft: 20,
   },
   topBarText: {
+    fontSize: 24,
     color: 'white',
-    fontSize: 22,
-    fontFamily: 'LibreBaskerville-Italic',
+    flexDirection: 'row',
+    alignItems: 'flex-end',  // 👈 ensures bottom alignment
+  },
+  TopBarText1: {
+    fontFamily: 'DMSerifDisplay-Italic',
+    fontSize: 23,
+    color: '#333333',
+    textShadowColor: '#333333',
+    textShadowOffset: { width: 0.5, height: 0.5 },
+    textShadowRadius: 0.2,
+  },
+  TopBarText2: {
+    fontFamily: 'SF-Pro', // Sans-serif, Regular
+    color: '#333333',
+    fontWeight: '400',
+    fontSize: 12,
+    letterSpacing: 1.2,
   },
   mainContent: {
     flex: 1,
@@ -112,4 +136,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#333',
   },
+  card: {
+  width: '100%',  // take up full width of column cell
+  maxWidth: 140,
+  marginHorizontal: 10,
+  alignItems: 'center',
+}
 });

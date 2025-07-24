@@ -11,9 +11,8 @@ export default function AddPdfCard({ onPress }: Props) {
   return (
     <TouchableOpacity onPress={onPress} style={styles.card}>
       <View style={styles.plusContainer}>
-        <AntDesign name="plus" size={40} color="#A47764" />
+        <AntDesign name="plus" size={40} color="#FAF9F6" />
       </View>
-      <Text style={styles.label}>Add PDF</Text>
     </TouchableOpacity>
   );
 }

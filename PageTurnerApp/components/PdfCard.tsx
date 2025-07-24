@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   title: {
-    fontStyle: 'italic',
+    fontFamily: 'DMSerifDisplay-Italic',
     fontWeight: '600',
     marginTop: 6,
     color: '#333',

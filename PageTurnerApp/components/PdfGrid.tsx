@@ -9,24 +9,32 @@ const dummyData = [
     id: '1',
     title: 'Für Elise',
     composer: 'Beethoven',
-    previewImage: require('../assets/images/sample_elise.png'), // placeholder
+    previewImage: require('../assets/images/sample_elise.png'),
   },
   {
     id: '2',
     title: 'Blank',
     composer: 'Composer',
-    previewImage: require('../assets/images/blank_cover.png'), // placeholder
+    previewImage: require('../assets/images/blank_cover.png'),
+  },
+  {
+    id: '3',
+    title: 'Blank',
+    composer: 'Composer',
+    previewImage: require('../assets/images/blank_cover.png'),
   },
 ];
 
 type Props = {
   onAdd: () => void;
+  numColumns: number;
 };
 
-export default function PdfGrid({ onAdd }: Props) {
+export default function PdfGrid({ onAdd, numColumns }: Props) {
   return (
     <FlatList
-      horizontal
+      key={numColumns}
+      numColumns={numColumns}
       data={[...dummyData, { id: 'add', title: '', composer: '', previewImage: null }]}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) =>
@@ -40,8 +48,12 @@ export default function PdfGrid({ onAdd }: Props) {
           />
         )
       }
-      contentContainerStyle={{ paddingHorizontal: 20 }}
-      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ padding: 20 }}
+      columnWrapperStyle={{
+        justifyContent: 'space-evenly',
+        marginBottom: 20,
+      }}
+      showsVerticalScrollIndicator={false}
     />
   );
 }
