@@ -21,8 +21,8 @@ export default function PdfCard({ title, composer, previewImage }: PdfCardProps)
 const styles = StyleSheet.create({
   card: {
     width: 120,
-    marginHorizontal: 10,
-    alignItems: 'center',
+    marginBottom: 20,
+    marginRight: 20,
   },
   image: {
     width: 120,
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'DMSerifDisplay-Italic',
+    textAlign: 'center',
     fontWeight: '600',
     marginTop: 6,
     color: '#333',
@@ -43,5 +44,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 12,
     color: '#666',
+    textAlign: 'center',
   },
+  
 });

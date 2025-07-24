@@ -19,9 +19,9 @@ export default function AddPdfCard({ onPress }: Props) {
 
 const styles = StyleSheet.create({
   card: {
-    width: 120,
-    marginHorizontal: 10,
-    alignItems: 'center',
+  width: 120,
+  marginBottom: 20,
+  marginRight: 20,
   },
   plusContainer: {
     width: 120,

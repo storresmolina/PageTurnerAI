@@ -70,8 +70,8 @@ export default function App() {
           <Text style={styles.TopBarText1}> pageturner </Text>
           <Text style={styles.TopBarText2}>AI</Text>
         </Text>
+        <Text style={styles.menuTitle}>LIBRARY</Text>
       </View>
-
       <View style={styles.mainContent}>
         {selectedPDF ? (
           <View style={styles.centerContent}>
@@ -121,6 +121,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     letterSpacing: 1.2,
   },
+  menuTitle: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: StatusBarHeight + 13,
+    textAlign: 'center',
+    fontFamily: 'SF-Pro-Display-Light',
+    fontSize: 15,
+    color: '#A47764',
+  },
   mainContent: {
     flex: 1,
     justifyContent: 'center',
@@ -136,10 +146,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#333',
   },
-  card: {
-  width: '100%',  // take up full width of column cell
-  maxWidth: 140,
-  marginHorizontal: 10,
-  alignItems: 'center',
-}
 });
