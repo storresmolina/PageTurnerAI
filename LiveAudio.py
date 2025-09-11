@@ -1,5 +1,5 @@
-import pyaudio
 import numpy as np
+import pyaudio
 import aubio
 from NoteTrackerClass import NoteTracker
 from SheetNoteDetector import extract_notes_from_pdf
