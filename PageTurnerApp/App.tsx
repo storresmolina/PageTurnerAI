@@ -146,4 +146,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#333',
   },
+  addAnimation: {
+    color: '#333',
+    fontsize: 10,
+  },
 });
