@@ -1,7 +1,11 @@
 {
   "expo": {
     "name": "PageTurnerAI",
-    "slug": "PageTurnerAI",
+    "slug": "pageturnerai",
+    "scheme": "pageturnerai",
+    "plugins": [
+      "react-native-pdf"
+    ],
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
@@ -21,7 +25,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.PageTurnerAI"
+      "package": "com.storres.pageturnerai"
     },
     "web": {
       "favicon": "./assets/favicon.png"
