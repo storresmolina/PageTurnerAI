@@ -1,4 +1,4 @@
-package com.anonymous.PageTurnerAI
+package com.storres.pageturnerai
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

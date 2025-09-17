@@ -1,4 +1,4 @@
-package com.anonymous.PageTurnerAI
+package com.storres.pageturnerai
 
 import android.app.Application
 import android.content.res.Configuration
