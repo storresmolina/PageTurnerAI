@@ -4,9 +4,10 @@ import * as Font from 'expo-font';
 import * as DocumentPicker from 'expo-document-picker';
 import * as SplashScreen from 'expo-splash-screen';
 import PdfGrid from './components/PdfGrid';
+import PdfViewer from './components/PdfViewer';
 
-SplashScreen.preventAutoHideAsync();
-SplashScreen.setOptions({ duration: 1000, fade: true });
+// SplashScreen.preventAutoHideAsync();
+// SplashScreen.setOptions({ duration: 1000, fade: true });
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -74,10 +75,12 @@ export default function App() {
       </View>
       <View style={styles.mainContent}>
         {selectedPDF ? (
-          <View style={styles.centerContent}>
-            <Text style={styles.pdfTitle}>Showing PDF: {selectedPDF.name}</Text>
-            {/* TODO: PDF Preview Component */}
-          </View>
+          <PdfViewer
+            pdfSource={{ uri: selectedPDF.url }}
+            title={selectedPDF.name}
+            composer="Unknown"   // optional, can drop this
+            onClose={() => setSelectedPDF(null)}
+          />
         ) : (
           <PdfGrid onAdd={pickPDF} numColumns={numColumns} />
         )}
@@ -144,6 +147,9 @@ const styles = StyleSheet.create({
   pdfTitle: {
     fontFamily: 'LibreBaskerville-Bold',
     fontSize: 18,
+    color: '#333',
+  },
+  addAnimation: {
     color: '#333',
   },
 });
