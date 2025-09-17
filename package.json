@@ -1,6 +1,19 @@
 {
   "dependencies": {
-    "react-native-pdf": "^6.7.7",
-    "react-native-webview": "^13.16.0"
+    "expo": "^54.0.6",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-pdf": "^6.7.1",
+    "react-native-webview": "^13.14.2"
+  },
+  "name": "PageTurnerAI",
+  "version": "1.0.0",
+  "scripts": {
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
   }
 }

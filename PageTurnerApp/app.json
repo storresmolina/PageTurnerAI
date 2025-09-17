@@ -3,9 +3,7 @@
     "name": "PageTurnerAI",
     "slug": "pageturnerai",
     "scheme": "pageturnerai",
-    "plugins": [
-      "react-native-pdf"
-    ],
+    "plugins": [],
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",

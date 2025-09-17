@@ -1,20 +1,27 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {StyleSheet, Alert, Text, View, Platform, StatusBar, useWindowDimensions, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Alert,
+  Text,
+  View,
+  Platform,
+  StatusBar,
+  useWindowDimensions,
+} from 'react-native';
 import * as Font from 'expo-font';
 import * as DocumentPicker from 'expo-document-picker';
 import * as SplashScreen from 'expo-splash-screen';
 import PdfGrid from './components/PdfGrid';
 import PdfViewer from './components/PdfViewer';
 
-// SplashScreen.preventAutoHideAsync();
-// SplashScreen.setOptions({ duration: 1000, fade: true });
+SplashScreen.preventAutoHideAsync();
+SplashScreen.setOptions({ duration: 1000, fade: true });
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [selectedPDF, setSelectedPDF] = useState<null | { name: string; url: string }>(null);
   const { width, height } = useWindowDimensions();
-  const isLandscape = width > height;
-  const cardWidth = 140; // width of 1 card + margin
+  const cardWidth = 140;
   const numColumns = Math.max(1, Math.floor(width / cardWidth));
 
   useEffect(() => {
@@ -27,7 +34,7 @@ export default function App() {
           'LibreBaskerville-Bold': require('./assets/fonts/LibreBaskerville-Bold.ttf'),
           'LibreBaskerville-Italic': require('./assets/fonts/LibreBaskerville-Italic.ttf'),
           'DMSerifDisplay-Italic': require('./assets/fonts/DMSerifDisplay-Italic.ttf'),
-          'DMSerifDisplay-Regular': require('./assets/fonts/DMSerifDisplay-Italic.ttf')
+          'DMSerifDisplay-Regular': require('./assets/fonts/DMSerifDisplay-Italic.ttf'),
         });
       } catch (e) {
         console.warn(e);
@@ -40,9 +47,7 @@ export default function App() {
   }, []);
 
   const onLayoutRootView = useCallback(() => {
-    if (appIsReady) {
-      SplashScreen.hideAsync();
-    }
+    if (appIsReady) SplashScreen.hideAsync();
   }, [appIsReady]);
 
   const pickPDF = async () => {
@@ -58,7 +63,6 @@ export default function App() {
 
     const file = result.assets[0];
     console.log('Selected file:', file);
-    Alert.alert('PDF Selected', file.name);
     setSelectedPDF({ name: file.name, url: file.uri });
   };
 
@@ -78,7 +82,6 @@ export default function App() {
           <PdfViewer
             pdfSource={{ uri: selectedPDF.url }}
             title={selectedPDF.name}
-            composer="Unknown"   // optional, can drop this
             onClose={() => setSelectedPDF(null)}
           />
         ) : (
@@ -92,10 +95,7 @@ export default function App() {
 const StatusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight ?? 0 : 0;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FAF9F6',
-  },
+  container: { flex: 1, backgroundColor: '#FAF9F6' },
   topBar: {
     backgroundColor: '#FAF9F6',
     paddingTop: StatusBarHeight,
@@ -105,21 +105,20 @@ const styles = StyleSheet.create({
   },
   topBarText: {
     fontSize: 24,
-    color: 'white',
     flexDirection: 'row',
-    alignItems: 'flex-end',  // 👈 ensures bottom alignment
+    alignItems: 'flex-end',
   },
   TopBarText1: {
     fontFamily: 'DMSerifDisplay-Italic',
     fontSize: 23,
-    color: '#333333',
-    textShadowColor: '#333333',
+    color: '#333',
+    textShadowColor: '#333',
     textShadowOffset: { width: 0.5, height: 0.5 },
     textShadowRadius: 0.2,
   },
   TopBarText2: {
-    fontFamily: 'SF-Pro', // Sans-serif, Regular
-    color: '#333333',
+    fontFamily: 'SF-Pro',
+    color: '#333',
     fontWeight: '400',
     fontSize: 12,
     letterSpacing: 1.2,
@@ -134,22 +133,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#A47764',
   },
-  mainContent: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingTop: 20,
-  },
-  centerContent: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  pdfTitle: {
-    fontFamily: 'LibreBaskerville-Bold',
-    fontSize: 18,
-    color: '#333',
-  },
-  addAnimation: {
-    color: '#333',
-  },
+  mainContent: { flex: 1, justifyContent: 'center', paddingTop: 20 },
 });
