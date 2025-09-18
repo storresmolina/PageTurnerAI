@@ -20,7 +20,7 @@ SplashScreen.setOptions({ duration: 1000, fade: true });
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [selectedPDF, setSelectedPDF] = useState<null | { name: string; url: string }>(null);
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const cardWidth = 140;
   const numColumns = Math.max(1, Math.floor(width / cardWidth));
 
@@ -70,18 +70,22 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <View style={styles.topBar}>
-        <Text style={styles.topBarText}>
-          <Text style={styles.TopBarText1}> pageturner </Text>
-          <Text style={styles.TopBarText2}>AI</Text>
-        </Text>
-        <Text style={styles.menuTitle}>LIBRARY</Text>
-      </View>
+      {/* Only show TopBar in Library */}
+      {!selectedPDF && (
+        <View style={styles.topBar}>
+          <Text style={styles.topBarText}>
+            <Text style={styles.TopBarText1}> pageturner </Text>
+            <Text style={styles.TopBarText2}>AI</Text>
+          </Text>
+          <Text style={styles.menuTitle}>LIBRARY</Text>
+        </View>
+      )}
+
       <View style={styles.mainContent}>
         {selectedPDF ? (
           <PdfViewer
             pdfSource={{ uri: selectedPDF.url }}
-            title={selectedPDF.name}
+            title={selectedPDF.name.replace(/\.pdf$/i, '')} // strip .pdf
             onClose={() => setSelectedPDF(null)}
           />
         ) : (

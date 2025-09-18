@@ -6,26 +6,24 @@ import Pdf from 'react-native-pdf';
 type PdfViewerProps = {
   pdfSource: { uri: string };
   title: string;
-  composer?: string;
   onClose: () => void;
 };
 
-export default function PdfViewer({ pdfSource, title, composer, onClose }: PdfViewerProps) {
+export default function PdfViewer({ pdfSource, title, onClose }: PdfViewerProps) {
   const StatusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight ?? 0 : 0;
 
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <View style={[styles.header, { paddingTop: StatusBarHeight + 12 }]}>
+      {/* TopBar */}
+      <View style={[styles.header, { paddingTop: StatusBarHeight - 15}]}>
         <TouchableOpacity onPress={onClose} style={styles.backButton} activeOpacity={0.7}>
-          <AntDesign name="arrowleft" size={20} color="#333" />
-          <Text style={styles.backText}>Library</Text>
+          <AntDesign name="arrowleft" size={22} color="#333" />
         </TouchableOpacity>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title} numberOfLines={1}>{title}</Text>
-          {composer && <Text style={styles.composer}>{composer}</Text>}
-        </View>
-        <View style={styles.spacer} />
+        <Text style={styles.title} numberOfLines={1} ellipsizeMode="middle">
+          {title}
+        </Text>
+        {/* Spacer to balance the centered title */}
+        <View style={{ width: 22 }} />
       </View>
 
       {/* PDF Viewer */}
@@ -47,8 +45,9 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: 12,
+    paddingTop: 0,
+    paddingBottom: 10,
     backgroundColor: '#FAF9F6',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5E5',
@@ -57,27 +56,19 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
+    justifyContent: 'space-between',
   },
   backButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 8,
-    paddingHorizontal: 12,
-    marginRight: 16,
-    borderRadius: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    minHeight: 40,
+    padding: 6,
   },
-  backText: { fontFamily: 'SF-Pro', fontSize: 16, color: '#333', marginLeft: 6 },
-  titleContainer: { flex: 1, alignItems: 'center' },
   title: {
-    fontFamily: 'DMSerifDisplay-Italic',
+    flex: 1,
+    textAlign: 'center',
+    fontFamily: 'DMSerifDisplay-Regular',
     fontSize: 18,
     color: '#333',
     fontWeight: '600',
   },
-  composer: { fontFamily: 'SF-Pro', fontSize: 14, color: '#666', marginTop: 2 },
-  spacer: { width: 50 },
   content: { flex: 1, padding: 10 },
   pdf: { flex: 1, width: '100%', backgroundColor: 'transparent' },
 });
